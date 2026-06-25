@@ -1,0 +1,250 @@
+.container {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  padding-bottom: 100rpx;
+}
+
+/* 用户信息 */
+.user-info {
+  display: flex;
+  align-items: center;
+  padding: 30rpx 24rpx;
+  background-color: white;
+  margin-bottom: 16rpx;
+}
+
+.user-avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 20rpx;
+  flex-shrink: 0;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+}
+
+.avatar-default {
+  width: 100%;
+  height: 100%;
+  background-color: #e8f5e9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40rpx;
+}
+
+.user-detail {
+  flex: 1;
+}
+
+.user-nickname {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  display: block;
+}
+
+.user-greeting {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 6rpx;
+  display: block;
+}
+
+/* 顶部标签栏 */
+.tab-bar {
+  background-color: white;
+  display: flex;
+  justify-content: space-around;
+  padding: 20rpx 0;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.tab-item {
+  padding: 16rpx 40rpx;
+  font-size: 30rpx;
+  color: #666;
+  border-radius: 40rpx;
+  transition: all 0.3s;
+}
+
+.tab-item.active {
+  background: linear-gradient(135deg, #66bb6a 0%, #4caf50 100%);
+  color: white;
+  font-weight: 500;
+}
+
+/* 统计卡片 */
+.stats-card {
+  background: linear-gradient(135deg, #66bb6a 0%, #4caf50 100%);
+  padding: 40rpx 30rpx;
+  display: flex;
+  justify-content: space-around;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
+}
+
+/* 科目筛选栏 */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20rpx;
+  background-color: white;
+  gap: 16rpx;
+}
+
+.filter-item {
+  padding: 12rpx 28rpx;
+  border-radius: 32rpx;
+  font-size: 26rpx;
+  color: #666;
+  background-color: #f5f5f5;
+  transition: all 0.3s;
+}
+
+.filter-item.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+/* 打卡列表 */
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+
+.stat-number {
+  font-size: 56rpx;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+
+.stat-label {
+  font-size: 28rpx;
+  opacity: 0.9;
+}
+
+/* 打卡列表 */
+.checkin-list {
+  padding: 20rpx;
+}
+
+.checkin-item {
+  background-color: white;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.08);
+}
+
+.checkin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.checkin-date {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.subject-tag {
+  padding: 8rpx 20rpx;
+  border-radius: 20rpx;
+  color: white;
+  font-size: 24rpx;
+  font-weight: 500;
+}
+
+.checkin-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content-summary {
+  flex: 1;
+  font-size: 30rpx;
+  color: #333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-right: 20rpx;
+}
+
+.duration {
+  font-size: 28rpx;
+  color: #4caf50;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* 空状态 */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 120rpx 0;
+  color: #999;
+}
+
+.empty-icon {
+  font-size: 120rpx;
+  margin-bottom: 30rpx;
+}
+
+.empty-text {
+  font-size: 30rpx;
+}
+
+/* 加载更多提示 */
+.load-more-tip {
+  text-align: center;
+  padding: 30rpx;
+  color: #999;
+  font-size: 26rpx;
+}
+
+/* 加载状态 */
+.loading-state {
+  text-align: center;
+  padding: 40rpx 0;
+}
+
+.loading-text {
+  font-size: 28rpx;
+  color: #999;
+}
+
+/* 浮动按钮 */
+.fab-button {
+  position: fixed;
+  right: 40rpx;
+  bottom: 120rpx;
+  width: 100rpx;
+  height: 100rpx;
+  background: linear-gradient(135deg, #66bb6a 0%, #4caf50 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8rpx 20rpx rgba(76, 175, 80, 0.4);
+  z-index: 999;
+}
+
+.fab-icon {
+  font-size: 60rpx;
+  color: white;
+  font-weight: bold;
+  line-height: 1;
+}

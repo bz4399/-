@@ -1,0 +1,74 @@
+<view class="container">
+  <view class="form-card">
+    <!-- 日期选择 -->
+    <view class="form-item">
+      <text class="label">打卡日期</text>
+      <picker mode="date" value="{{date}}" bindchange="onDateChange">
+        <view class="picker-value">
+          <text>{{date}}</text>
+          <text class="arrow">▸</text>
+        </view>
+      </picker>
+    </view>
+
+    <!-- 科目选择 -->
+    <view class="form-item">
+      <text class="label">学习科目</text>
+      <picker range="{{subjectNames}}" value="{{subjectIndex}}" bindchange="onSubjectChange">
+        <view class="picker-value">
+          <text wx:if="{{subject}}" class="subject-tag" style="background-color: {{subjectColor}};">{{subject}}</text>
+          <text wx:else class="placeholder">请选择科目</text>
+          <text class="arrow">▸</text>
+        </view>
+      </picker>
+    </view>
+
+    <!-- 新增科目输入 -->
+    <view class="form-item" wx:if="{{isNewSubject}}">
+      <text class="label">新科目名称</text>
+      <input class="input" placeholder="请输入新科目名称" value="{{newSubjectName}}" bindinput="onNewSubjectInput" />
+    </view>
+
+    <!-- 学习时长 -->
+    <view class="form-item">
+      <text class="label">学习时长</text>
+      <view class="input-wrap">
+        <input class="input" type="number" placeholder="学习时长（分钟）" value="{{duration}}" bindinput="onDurationInput" />
+        <text class="unit">分钟</text>
+      </view>
+    </view>
+
+    <!-- 学习内容 -->
+    <view class="form-item">
+      <text class="label">学习内容</text>
+      <textarea class="textarea" placeholder="学习内容/心得（可选）" maxlength="500" value="{{content}}" bindinput="onContentInput" auto-height></textarea>
+      <text class="char-count">{{content.length || 0}}/500</text>
+    </view>
+
+    <!-- 学习图片 -->
+    <view class="form-item">
+      <text class="label">学习图片（可选）</text>
+      <view class="image-upload-area">
+        <view class="image-list">
+          <view class="image-item" wx:for="{{images}}" wx:key="*this">
+            <image src="{{item}}" class="uploaded-image" mode="aspectFill"></image>
+            <view class="image-remove" bindtap="onRemoveImage" data-index="{{index}}">
+              <text>✕</text>
+            </view>
+          </view>
+          <view class="image-add" bindtap="onChooseImage" wx:if="{{images.length < 3}}">
+            <text class="add-icon">+</text>
+            <text class="add-text">添加图片</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 提交按钮 -->
+  <view class="btn-area">
+    <button class="submit-btn" bindtap="onSubmit" loading="{{submitting}}">
+      {{isEdit ? '更新打卡' : '保存打卡'}}
+    </button>
+  </view>
+</view>

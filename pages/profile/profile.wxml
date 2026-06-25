@@ -1,0 +1,54 @@
+<view class="container">
+  <!-- 用户信息卡片 -->
+  <view class="profile-header" bindtap="onUserInfoTap">
+    <view class="avatar-wrap">
+      <image wx:if="{{userInfo.avatarUrl}}" src="{{userInfo.avatarUrl}}" class="avatar"></image>
+      <view wx:else class="avatar-default">
+        <text>👤</text>
+      </view>
+    </view>
+    <text class="nickname">{{userInfo.nickname}}</text>
+    <text class="motto">坚持学习，每天进步一点点</text>
+    <text class="edit-tip">点击更新个人信息</text>
+  </view>
+
+  <!-- 统计卡片 -->
+  <view class="stats-row">
+    <view class="stat-card">
+      <text class="stat-num">{{totalDays}}</text>
+      <text class="stat-label">打卡天数</text>
+    </view>
+    <view class="stat-card">
+      <text class="stat-num">{{streakDays}}</text>
+      <text class="stat-label">连续打卡</text>
+    </view>
+    <view class="stat-card">
+      <text class="stat-num">{{totalMinutes}}</text>
+      <text class="stat-label">学习时长(分)</text>
+    </view>
+  </view>
+
+  <!-- 功能列表 -->
+  <view class="menu-list">
+    <view class="menu-item" bindtap="onMyCheckins">
+      <text class="menu-icon">📝</text>
+      <text class="menu-text">我的打卡记录</text>
+      <text class="menu-arrow">›</text>
+    </view>
+    <view class="menu-item" bindtap="onSettings">
+      <text class="menu-icon">⚙️</text>
+      <text class="menu-text">设置</text>
+      <text class="menu-arrow">›</text>
+    </view>
+    <view class="menu-item" bindtap="onAbout">
+      <text class="menu-icon">ℹ️</text>
+      <text class="menu-text">关于</text>
+      <text class="menu-arrow">›</text>
+    </view>
+  </view>
+
+  <!-- 加载状态 -->
+  <view wx:if="{{loading}}" class="loading-container">
+    <text class="loading-text">加载中...</text>
+  </view>
+</view>

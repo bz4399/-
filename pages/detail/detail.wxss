@@ -1,0 +1,139 @@
+.container {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  padding-bottom: 150rpx;
+}
+
+/* 详情卡片 */
+.detail-card {
+  background-color: white;
+  margin: 20rpx;
+  border-radius: 16rpx;
+  padding: 40rpx 30rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.08);
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.detail-row:last-child {
+  border-bottom: none;
+}
+
+.content-row {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.detail-label {
+  font-size: 30rpx;
+  color: #666;
+  min-width: 140rpx;
+}
+
+.detail-value {
+  font-size: 30rpx;
+  color: #333;
+  font-weight: 500;
+}
+
+/* 科目标签 */
+.subject-tag {
+  padding: 12rpx 30rpx;
+  border-radius: 24rpx;
+  color: white;
+  font-size: 28rpx;
+  font-weight: 500;
+}
+
+/* 时长显示 */
+.duration-display {
+  display: flex;
+  align-items: baseline;
+}
+
+.duration-number {
+  font-size: 48rpx;
+  color: #4caf50;
+  font-weight: bold;
+  margin-right: 8rpx;
+}
+
+.duration-unit {
+  font-size: 28rpx;
+  color: #666;
+}
+
+/* 内容 */
+.detail-content {
+  width: 100%;
+  font-size: 30rpx;
+  color: #333;
+  line-height: 1.6;
+  margin-top: 20rpx;
+  word-wrap: break-word;
+}
+
+/* 底部操作栏 */
+.action-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  padding: 20rpx 30rpx;
+  display: flex;
+  gap: 20rpx;
+  box-shadow: 0 -4rpx 12rpx rgba(0, 0, 0, 0.08);
+}
+
+.action-btn {
+  flex: 1;
+  height: 88rpx;
+  border-radius: 16rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+}
+
+.edit-btn {
+  background: linear-gradient(135deg, #66bb6a 0%, #4caf50 100%);
+  color: white;
+}
+
+.delete-btn {
+  background: linear-gradient(135deg, #ef5350 0%, #e53935 100%);
+  color: white;
+}
+
+/* 学习图片 */
+.detail-images {
+  margin-top: 32rpx;
+}
+
+.detail-images .detail-label {
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 16rpx;
+  display: block;
+}
+
+.image-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12rpx;
+}
+
+.detail-image {
+  width: 220rpx;
+  height: 220rpx;
+  border-radius: 12rpx;
+}

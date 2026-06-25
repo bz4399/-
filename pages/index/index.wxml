@@ -1,0 +1,95 @@
+<view class="container">
+  <!-- 用户信息 -->
+  <view class="user-info">
+    <view class="user-avatar">
+      <image wx:if="{{userInfo.avatarUrl}}" src="{{userInfo.avatarUrl}}" class="avatar-img"></image>
+      <view wx:else class="avatar-default">
+        <text>👤</text>
+      </view>
+    </view>
+    <view class="user-detail">
+      <text class="user-nickname">{{userInfo.nickname}}</text>
+      <text class="user-greeting">今天也要加油学习哦~</text>
+    </view>
+  </view>
+
+  <!-- 顶部时间切换标签 -->
+  <view class="tab-bar">
+    <view class="tab-item {{activeTab === 'today' ? 'active' : ''}}" bindtap="onTabChange" data-tab="today">
+      <text>今日</text>
+    </view>
+    <view class="tab-item {{activeTab === 'week' ? 'active' : ''}}" bindtap="onTabChange" data-tab="week">
+      <text>本周</text>
+    </view>
+    <view class="tab-item {{activeTab === 'month' ? 'active' : ''}}" bindtap="onTabChange" data-tab="month">
+      <text>本月</text>
+    </view>
+  </view>
+
+  <!-- 统计卡片 -->
+  <view class="stats-card">
+    <view class="stat-item">
+      <text class="stat-number">{{streakDays}}</text>
+      <text class="stat-label">连续打卡(天)</text>
+    </view>
+    <view class="stat-item">
+      <text class="stat-number">{{totalMinutes}}</text>
+      <text class="stat-label">累计学习(分钟)</text>
+    </view>
+  </view>
+
+  <!-- 科目筛选 -->
+  <view class="filter-bar" wx:if="{{filterSubjects.length > 0}}">
+    <view class="filter-item {{filterSubject === '' ? 'active' : ''}}" bindtap="onFilterChange" data-subject="">
+      <text>全部</text>
+    </view>
+    <view class="filter-item {{filterSubject === item ? 'active' : ''}}" 
+          wx:for="{{filterSubjects}}" wx:key="*this" 
+          bindtap="onFilterChange" data-subject="{{item}}">
+      <text>{{item}}</text>
+    </view>
+  </view>
+
+  <!-- 打卡列表 -->
+  <view class="checkin-list">
+    <!-- 加载中 -->
+    <view wx:if="{{loading}}" class="loading-state">
+      <text class="loading-text">加载中...</text>
+    </view>
+
+    <view 
+      wx:for="{{checkins}}" 
+      wx:key="_id" 
+      class="checkin-item"
+      bindtap="onItemTap"
+      data-id="{{item._id}}"
+    >
+      <view class="checkin-header">
+        <text class="checkin-date">{{item.date}}</text>
+        <view class="subject-tag" style="background-color: {{item.subjectColor || '#4CAF50'}}">
+          {{item.subject}}
+        </view>
+      </view>
+      <view class="checkin-content">
+        <text class="content-summary">{{item.content}}</text>
+        <text class="duration">{{item.duration}}分钟</text>
+      </view>
+    </view>
+
+    <!-- 空状态 -->
+    <view wx:if="{{checkins.length === 0}}" class="empty-state">
+      <text class="empty-icon">📝</text>
+      <text class="empty-text">暂无打卡记录，点击右下角开始打卡</text>
+    </view>
+
+    <!-- 加载更多提示 -->
+    <view wx:if="{{!hasMore && checkins.length > 0}}" class="load-more-tip">
+      <text>没有更多记录了</text>
+    </view>
+  </view>
+
+  <!-- 浮动添加按钮 -->
+  <view class="fab-button" bindtap="onAddTap">
+    <text class="fab-icon">+</text>
+  </view>
+</view>
